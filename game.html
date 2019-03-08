@@ -33,7 +33,7 @@
             </div>
 
 
-            <div class="grandWrapper">
+            <div class="grandWrapper" v-show="showLogin">
                 <div class="container">
                     <div class="upper">
                         <h1 id="loginTitle">Please sign in<button @click="closeLogin" class="closeLogin">&times</button></h1>
@@ -55,6 +55,7 @@
                         <div class="password" id="passwordDiv" v-show="showLogin">
                             <input type="password" id="pw" class="inputStyling" placeholder="Password">
                         </div>
+                        <div id="emailMessage" :emailMessage="emailMessage" v-show="showEmailMessage">{{ emailMessage }}</div>
                     </div>
     
                     <div class="lower">
@@ -64,10 +65,7 @@
                     </div>
                 </div>
             </div>
-            <div v-if="loggedIn">
-                <h2>YOU ARE COOL BECAUSE YOU LOGGED IN</h2>
-            </div>
-            <div id="cover"></div>
+            <div id="cover" v-if="showLogin"></div>
         </div>
     </div>
     
