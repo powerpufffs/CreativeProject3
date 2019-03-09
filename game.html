@@ -11,8 +11,7 @@
     <div class="largeContainer">
         <div id="app">
             <div>
-                <h1>Start Matching!</h1>
-                <h4>Click and hold to see the magic...</h4> 
+                <h1>The Game</h1>
                 <div class="login">
                     <button @click="openLogin" v-if="!loggedIn">Log In</button>
                     <div v-if="loggedIn">
@@ -22,22 +21,23 @@
                 </div>
             </div>
             <div class="info">
-                <div :time="time">
+                <div :time="time" style="margin-bottom: 2rem">
                     <span class="label">Time:</span>
                     <span class="value">{{ time }} </span>
                 </div>
-                <div>
+                <div style="margin-bottom: 2rem" :turns="turns">
                     <span class="label">Turns:</span>
                     <span class="value">{{ turns }}</span>
                 </div>
             </div>
 
+            <div id="cover" v-show="showLogin"></div>
 
             <div class="grandWrapper" v-show="showLogin">
                 <div class="container">
                     <div class="upper">
                         <h1 id="loginTitle">Please sign in<button @click="closeLogin" class="closeLogin">&times</button></h1>
-    
+                        
                         <p id="loginWith">Log in with
                             <button id="usernameButton" @click="logInWithUsername()">Username</button>
                             <button id="emailButton" @click="logInWithEmail()">Email</button>
@@ -65,7 +65,6 @@
                     </div>
                 </div>
             </div>
-            <div id="cover" v-if="showLogin"></div>
         </div>
     </div>
     
